@@ -4,6 +4,7 @@ public class Timer : MonoBehaviour
 {
     private TMP_Text timerText;
     [SerializeField] private float timeRemaining;
+
     void Awake()
     {
         timerText = transform.GetComponent<TMP_Text>();
@@ -28,7 +29,11 @@ public class Timer : MonoBehaviour
         timerText.text = ((int)timeRemaining).ToString();
     }
 
-    public float getTime()
+    public void SetTime(float timerLength)
+    {
+        timeRemaining = timerLength;
+    }
+    public float GetTime()
     {
         return timeRemaining;
     }
