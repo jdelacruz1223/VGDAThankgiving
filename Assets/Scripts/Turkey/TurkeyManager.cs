@@ -3,12 +3,16 @@ using UnityEngine.UIElements;
 
 public class TurkeyManager : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] float turkeySpawnInterval = 5;
+
     [Header("Statistics")]
     [SerializeField] Vector3 positiveCornerOfArea;
     [SerializeField] Vector3 negativeCornerOfArea;
 
     [Header("References")]
     [SerializeField] BoxCollider boxCollider;
+    [SerializeField] Timer timer;
     [SerializeField] GameObject turkeyPrefab;
 
     void SpawnTurkeyAtRandomPosition()
@@ -20,7 +24,18 @@ public class TurkeyManager : MonoBehaviour
         Instantiate(turkeyPrefab, new Vector3(randX,randY,randZ),Quaternion.identity);
     }
 
+    void Start()
+    {
+        timer.SetTime(turkeySpawnInterval);
+    }
+
     void Update()
+    {
+        GetAreaCorners();
+        SpawnTurkeyRoutinely();
+    }
+
+    void GetAreaCorners()
     {
         // figure out positive corner of box collider (+x, +y, and +z)
         positiveCornerOfArea = boxCollider.center;
@@ -35,5 +50,19 @@ public class TurkeyManager : MonoBehaviour
         negativeCornerOfArea.x -= (boxCollider.size.x / 2);
         negativeCornerOfArea.y -= (boxCollider.size.y / 2);
         negativeCornerOfArea.z -= (boxCollider.size.z / 2);
+    }
+    void SpawnTurkeyRoutinely()
+    {
+        float timeRemaining = timer.GetTime();
+
+        // once the time remaining is basically zero...
+        if (timeRemaining <= Mathf.Epsilon)
+        {
+            // ...let's spawn a turkey at a random position...
+            SpawnTurkeyAtRandomPosition();
+
+            // ...and then reset the timer.
+            timer.SetTime(turkeySpawnInterval);
+        }
     }
 }
