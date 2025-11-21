@@ -350,7 +350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &1513402721
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -452,6 +452,22 @@ PrefabInstance:
     - target: {fileID: 1995131516663656683, guid: 91fbc96d4b37843cea5fba61efc25d2d, type: 3}
       propertyPath: m_Name
       value: Turkey Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821676206400737633, guid: 91fbc96d4b37843cea5fba61efc25d2d, type: 3}
+      propertyPath: m_Size.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821676206400737633, guid: 91fbc96d4b37843cea5fba61efc25d2d, type: 3}
+      propertyPath: m_Size.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821676206400737633, guid: 91fbc96d4b37843cea5fba61efc25d2d, type: 3}
+      propertyPath: m_Size.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3821676206400737633, guid: 91fbc96d4b37843cea5fba61efc25d2d, type: 3}
+      propertyPath: m_Center.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8920362629694793739, guid: 91fbc96d4b37843cea5fba61efc25d2d, type: 3}
       propertyPath: m_LocalPosition.x
