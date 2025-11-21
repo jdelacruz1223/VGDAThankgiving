@@ -11,6 +11,8 @@ public class TurkeyManager : MonoBehaviour
     [SerializeField] BoxCollider boxCollider;
     [SerializeField] GameObject turkeyPrefab;
 
+    [SerializeField] Timer timer;
+
     void SpawnTurkeyAtRandomPosition()
     {
         // e
@@ -19,9 +21,16 @@ public class TurkeyManager : MonoBehaviour
         float randZ = Random.Range(negativeCornerOfArea.z,positiveCornerOfArea.z);
         Instantiate(turkeyPrefab, new Vector3(randX,randY,randZ),Quaternion.identity);
     }
-
+    void Awake()
+    {
+        InvokeRepeating("SpawnTurkeyAtRandomPosition",0f,5f);
+    }
     void Update()
     {
+        if (timer.getTime() == 0)
+        {
+            CancelInvoke("SpawnTurkeyAtRandomPosition");
+        }
         // figure out positive corner of box collider (+x, +y, and +z)
         positiveCornerOfArea = boxCollider.center;
 
