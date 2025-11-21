@@ -11,7 +11,7 @@ public class TurkeyManager : MonoBehaviour
     [SerializeField] BoxCollider boxCollider;
     [SerializeField] GameObject turkeyPrefab;
 
-    void SpawnTurkey()
+    void SpawnTurkeyAtRandomPosition()
     {
         // e
     }
