@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 public class Timer : MonoBehaviour
 {
     private TMP_Text timerText;
@@ -25,6 +24,11 @@ public class Timer : MonoBehaviour
         {
             timeRemaining = 0;
         }
-        timerText.text = timeRemaining + " sec remaining";
+        timerText.text = ((int)timeRemaining).ToString();
+    }
+
+    public float getTime()
+    {
+        return timeRemaining;
     }
 }
