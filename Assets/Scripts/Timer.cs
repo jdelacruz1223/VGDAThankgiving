@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     void Awake()
     {
         timerText = transform.GetComponent<TMP_Text>();
-        timerText.text = timeRemaining + " sec remaining";
+        timerText.text = ((int)timeRemaining).ToString();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +17,8 @@ public class Timer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (timeRemaining > 0)
+    {   
+        if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
         } else
