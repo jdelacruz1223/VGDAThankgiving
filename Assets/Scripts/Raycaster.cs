@@ -21,7 +21,7 @@ public class Raycaster : MonoBehaviour
         {
             if(hit.collider.gameObject.CompareTag("Turkey"))
             {
-                Debug.Log("turkey");
+                hit.collider.GetComponent<Turkey>().ShootTurkey();
 
             }
         }
