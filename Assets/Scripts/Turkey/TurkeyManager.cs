@@ -19,9 +19,8 @@ public class TurkeyManager : MonoBehaviour
     {
         // e
         float randX = Random.Range(negativeCornerOfArea.x, positiveCornerOfArea.x);
-        float randY = Random.Range(negativeCornerOfArea.y,positiveCornerOfArea.y);
         float randZ = Random.Range(negativeCornerOfArea.z,positiveCornerOfArea.z);
-        Instantiate(turkeyPrefab, new Vector3(randX,randY,randZ),Quaternion.identity);
+        Instantiate(turkeyPrefab, new Vector3(randX,0.6f,randZ),Quaternion.identity);
     }
 
     void Start()

@@ -19,6 +19,7 @@ public class Raycaster : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity) && Input.GetButtonDown("Fire1"))
         {
+            Debug.Log(hit.collider.gameObject.name);
             if(hit.collider.gameObject.CompareTag("Turkey"))
             {
                 hit.collider.GetComponent<Turkey>().ShootTurkey();
